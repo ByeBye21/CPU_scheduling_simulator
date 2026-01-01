@@ -1,7 +1,5 @@
 # CPU_scheduling_simulator
 
-**Gerçek sistem süreçleriyle CPU çizelgeleme algoritmalarını görselleştiren interaktif masaüstü uygulaması.**
-
 İşletim sistemleri derslerinde öğrenilen CPU scheduling algoritmalarını, bilgisayarınızda çalışan gerçek süreçler üzerinde test edebilir, görselleştirebilir ve karşılaştırabilirsiniz.
 
 ---
@@ -100,10 +98,10 @@ sudo python CPUSchedulingSimulator.py
 
 ### Adım 3: Algoritma Seç
 - Dropdown menüden algoritma seçin:
-  - FCFS (basit)
-  - SJF (optimal)
-  - Priority (gerçek zamanlı)
-  - Round Robin (adil)
+  - FCFS
+  - SJF
+  - Priority
+  - Round Robin
 - Round Robin seçtiyseniz **Time Quantum** girin (varsayılan: 2)
 
 ### Adım 4: Simülasyonu Çalıştır
@@ -129,14 +127,4 @@ sudo python CPUSchedulingSimulator.py
 - Her süreç için completion, turnaround, waiting time
 - Sütun başlıklarına tıklayarak sıralama yapabilirsiniz
 
-### Adım 6: Karşılaştır (Manuel)
-1. Sonuçları not alın
-2. **"🔄 Reset Data"** butonuna tıklayın
-3. Başka bir algoritma seçin
-4. Aynı süreçlerle tekrar simüle edin
-5. KPI metriklerini karşılaştırın
-
 ---
----
-
-**⭐ Eğitim amaçlı kullanım için geliştirilmiştir. Projeyi beğendiyseniz yıldız vermeyi unutmayın!**
