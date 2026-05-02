@@ -1,130 +1,128 @@
-# CPU_scheduling_simulator
+# CPU Scheduling Simulator
 
-İşletim sistemleri derslerinde öğrenilen CPU scheduling algoritmalarını, bilgisayarınızda çalışan gerçek süreçler üzerinde test edebilir, görselleştirebilir ve karşılaştırabilirsiniz.
-
----
-
-## 🎯 Ne Yapar?
-
-Bu uygulama, bilgisayarınızda çalışan gerçek süreçleri (Chrome, Discord, VS Code vb.) alır ve seçtiğiniz CPU çizelgeleme algoritmasıyla nasıl yönetileceklerini simüle eder. 
-
-**Ana İşlevler:**
-- Sisteminizdeki aktif süreçleri otomatik olarak getirir
-- Her süreç için burst time (CPU kullanım süresi) hesaplar veya siz düzenlersiniz
-- 4 farklı algoritmayla simülasyon çalıştırır
-- Gantt Chart ile zaman çizelgesini görselleştirir
-- Performans metriklerini hesaplar ve karşılaştırır
+You can test, visualize, and compare the CPU scheduling algorithms learned in operating systems courses on real processes running on your computer.
 
 ---
 
-## 📊 Desteklenen Algoritmalar
+## 🎯 What It Does?
+
+This application fetches real processes running on your computer (Chrome, Discord, VS Code, etc.) and simulates how they would be managed using the CPU scheduling algorithm of your choice. 
+
+**Main Features:**
+- Automatically fetches active processes from your system
+- Calculates burst time (CPU usage time) for each process, or allows you to edit them
+- Runs simulations with 4 different algorithms
+- Visualizes the timeline with a Gantt Chart
+- Calculates and compares performance metrics
+
+---
+
+## 📊 Supported Algorithms
 
 ### 1. **FCFS (First Come First Serve)**
-- En basit algoritma
-- Geliş sırasına göre işlem yapar
-- Adil ama bazen verimsiz (convoy effect)
-- **Ne zaman kullanılır:** Basit batch işlemler
+- The simplest algorithm
+- Processes jobs in arrival order
+- Fair but sometimes inefficient (convoy effect)
+- **When to use:** Simple batch processing
 
 ### 2. **SJF (Shortest Job First - Preemptive)**
-- En kısa işi önce yapar
-- Optimal ortalama bekleme süresi sağlar
-- Uzun süreçler açlık çekebilir (starvation)
-- **Ne zaman kullanılır:** Minimum bekleme süresi hedeflendiğinde
+- Executes the shortest job first
+- Provides optimal average waiting time
+- Long processes may suffer from starvation
+- **When to use:** When aiming for minimum waiting time
 
 ### 3. **Priority Scheduling (Preemptive)**
-- Önceliğe göre işlem yapar (sistemden alınan priority değerleri)
-- Yüksek öncelikli işler öne geçer
-- Priority inversion riski var
-- **Ne zaman kullanılır:** Gerçek zamanlı sistemler, kritik işler
+- Processes based on priority (uses priority values fetched from the system)
+- High-priority jobs jump the queue
+- Risk of priority inversion
+- **When to use:** Real-time systems, critical tasks
 
 ### 4. **Round Robin**
-- Her süreç belirli zaman dilimi (quantum) alır
-- Adil dağılım sağlar
-- Time quantum seçimi kritik
-- **Ne zaman kullanılır:** Time-sharing sistemler, interaktif uygulamalar
+- Each process gets a fixed time slot (quantum)
+- Ensures fair distribution
+- Choice of time quantum is critical
+- **When to use:** Time-sharing systems, interactive applications
 
 ---
 
-## 🚀 Kurulum ve Çalıştırma
+## 🚀 Installation & Execution
 
-### Windows Kullanıcıları (.exe)
-1. **İndirin:** `CPUSchedulingSimulator.exe` dosyasını indirin
-2. **Çalıştırın:** Dosyaya çift tıklayın
-3. **Uyarı çıkarsa:** "More info" → "Run anyway" seçin
-4. **Hepsi bu kadar!** Python kurulumu gerekmez
+### Windows Users (.exe)
+1. **Download:** Download the `CPUSchedulingSimulator.exe` file
+2. **Run:** Double-click the file
+3. **If a warning appears:** Select "More info" → "Run anyway"
+4. **That's it!** No Python installation is required
 
-### Linux/macOS veya Kaynak Koddan Çalıştırma
+### Linux/macOS or Running from Source Code
 
-**Adım 1: Python Kontrol**
+**Step 1: Check Python**
 ```bash
-python --version  # 3.8 veya üzeri olmalı
+python --version  # Must be 3.8 or higher
 ```
 
-**Adım 2: Bağımlılıkları Yükle**
+**Step 2: Install Dependencies**
 ```bash
 pip install customtkinter psutil
 ```
 
-**Adım 3: Uygulamayı Çalıştır**
+**Step 3: Run the Application**
 ```bash
 python CPUSchedulingSimulator.py
 ```
 
-**Linux'ta izin hatası alırsanız:**
+**If you get a permission error on Linux:**
 ```bash
 sudo python CPUSchedulingSimulator.py
 ```
 
 ---
 
-## 💻 Nasıl Kullanılır?
+## 💻 How to Use?
 
-### Adım 1: Süreçleri Getir
-1. Sol panelde **"🔄 Fetch PC Processes"** butonuna tıklayın
-2. Kısa bir loading animasyonu görünür
-3. Sağ tarafta 30 süreç listesi belirir
-4. Her süreç için otomatik burst time hesaplanır (0-100 arası)
+### Step 1: Fetch Processes
+1. Click the **"🔄 Fetch PC Processes"** button on the left panel
+2. A brief loading animation appears
+3. A list of 30 processes will appear on the right
+4. Burst time is automatically calculated for each process (between 0-100)
 
-**Burst Time Nasıl Hesaplanır?**
-- Gerçek CPU kullanımı + Random faktör
-- Yoğun süreçler (Chrome) daha yüksek değer alır
-- Hafif süreçler (system services) düşük değer alır
+**How is Burst Time Calculated?**
+- Real CPU usage + Random factor
+- Heavy processes (like Chrome) get higher values
+- Lightweight processes (system services) get lower values
 
-### Adım 2: Burst Time Düzenle (Opsiyonel)
-- Tabloda **"Burst Time"** sütunundaki herhangi bir değere tıklayın
-- Yeni değer yazın (0-100 arası)
-- Enter'a basın
-- Eğitim senaryoları oluşturmak için kullanışlı
+### Step 2: Edit Burst Time (Optional)
+- Click on any value in the **"Burst Time"** column of the table
+- Enter a new value (between 0-100)
+- Press Enter
+- Very useful for creating educational scenarios
 
-### Adım 3: Algoritma Seç
-- Dropdown menüden algoritma seçin:
+### Step 3: Select Algorithm
+- Select an algorithm from the dropdown menu:
   - FCFS
   - SJF
   - Priority
   - Round Robin
-- Round Robin seçtiyseniz **Time Quantum** girin (varsayılan: 2)
+- If Round Robin is selected, enter a **Time Quantum** (default: 2)
 
-### Adım 4: Simülasyonu Çalıştır
-- **"▶ Run Simulation"** butonuna tıklayın
-- Sonuçlar anında görünür
+### Step 4: Run Simulation
+- Click the **"▶ Run Simulation"** button
+- Results will appear instantly
 
-### Adım 5: Sonuçları Analiz Et
+### Step 5: Analyze Results
 
-**İnteraktif Gantt Chart:**
-- Her süreç farklı renkle gösterilir
-- Zaman çizelgesini görselleştirir
-- **Zoom In/Out:** Detay görmek için büyüt/küçült
-- **Pan:** Mouse ile sürükle
-- **Scroll:** Yatay kaydırma
+**Interactive Gantt Chart:**
+- Each process is displayed in a different color
+- Visualizes the execution timeline
+- **Zoom In/Out:** Zoom to see details
+- **Pan:** Drag with your mouse
+- **Scroll:** Horizontal scrolling
 
-**KPI Metrikleri (4 Kart):**
-1. **CPU Utilization** - CPU'nun ne kadar meşgul olduğu (%)
-2. **Throughput** - Birim zamanda tamamlanan süreç sayısı
-3. **Avg Turnaround Time** - Ortalama tamamlanma süresi
-4. **Avg Waiting Time** - Ortalama bekleme süresi
+**KPI Metrics (4 Cards):**
+1. **CPU Utilization** - How busy the CPU is (%)
+2. **Throughput** - Number of processes completed per unit of time
+3. **Avg Turnaround Time** - Average time taken to complete processes
+4. **Avg Waiting Time** - Average time processes spend waiting in the queue
 
-**Detaylı Sonuç Tablosu:**
-- Her süreç için completion, turnaround, waiting time
-- Sütun başlıklarına tıklayarak sıralama yapabilirsiniz
-
----
+**Detailed Results Table:**
+- Completion, turnaround, and waiting time for each process
+- Click on column headers to sort the data
