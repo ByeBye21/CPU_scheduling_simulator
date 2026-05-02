@@ -126,3 +126,5 @@ sudo python CPUSchedulingSimulator.py
 **Detailed Results Table:**
 - Completion, turnaround, and waiting time for each process
 - Click on column headers to sort the data
+
+---
